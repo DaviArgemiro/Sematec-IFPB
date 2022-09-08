@@ -7,7 +7,7 @@
 
 body {
     background-color: rgb(63, 60, 196);
-    min-width: 500px;
+    min-width: 450px;
 }
 
 nav {
@@ -17,6 +17,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 } 
 
 li {
@@ -27,7 +28,7 @@ li {
 a {
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 a.logo {
@@ -35,12 +36,11 @@ a.logo {
 }
 
 #home {
-    height: calc(100vh - 11.5vh - 20px);
+    height: calc(88.5vh - 20px);
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    margin: 20px;
 }
 
 .home-infos {
@@ -57,6 +57,7 @@ a.logo {
     color: white;
     font-size: 18px;
     letter-spacing: 1px;
+    margin-bottom: 30px;
 }
 
 .home-img img {
@@ -65,14 +66,14 @@ a.logo {
     object-fit: cover;
 }
 
-
-button {
-    border: none;
-    background-color: transparent;
-}
-
-button a {
+a.btn {
     padding: 10px 20px;
-    border: 2px solid blue; 
-    
+    border: 2px solid white;
+    border-radius: 10px;
 }
+
+a.btn:hover {
+    background-color: white;
+    color: rgb(63, 60, 196);;
+}
+

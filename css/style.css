@@ -1,79 +1,93 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: rgb(63, 60, 196);
-    min-width: 450px;
+  background-color: #eaf0f7;
+  min-width: 450px;
 }
 
 nav {
-    background-color: rgba(0,0,0, .2);
-    height: 11.5vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-} 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem;
+  width: 100%;
+  border-bottom: 1px solid #000000;
+}
 
 li {
-    display: inline-block;
-    margin: 0 20px;
+  display: inline-block;
+  margin: 0 20px;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
 }
 
 a.logo {
-    letter-spacing: 4px;
+  letter-spacing: 4px;
 }
 
 #home {
-    height: calc(88.5vh - 20px);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+  height: calc(88.5vh - 20px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .home-infos {
-    width: 400px;
+  width: 400px;
 }
 
-.home-infos h1{
-    color: white;
-    font-size: 50px;
-    line-height: 60px;
+.home-infos h1 {
+  color: #333;
+  font-size: 50px;
+  line-height: 60px;
 }
 
 .home-infos p {
-    color: white;
-    font-size: 18px;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
+  color: black;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
 }
 
 .home-img img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
 a.btn {
-    padding: 10px 20px;
-    border: 2px solid white;
-    border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #4461f2;
+  color: white;
 }
 
 a.btn:hover {
-    background-color: white;
-    color: rgb(63, 60, 196);;
+  color: #4461f2;
+  background-color: white;
+  border: none;
+  transition: 0.3s all ease;
 }
 
+@media (max-width: 700px) {
+  nav {
+    margin-bottom: 2rem;
+  }
+
+
+@media (max-width: 497px) {
+  a.logo {
+    margin-bottom: 1rem;
+  }
+}

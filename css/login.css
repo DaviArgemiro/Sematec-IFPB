@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
   align-items: center;
   padding: 1.5rem;
   width: 100%;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid white;
 }
 
 .menu,
@@ -32,7 +33,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
-  color: #000000;
+  color: #4461f2;
   margin: 0 1rem;
 }
 

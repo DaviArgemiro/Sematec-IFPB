@@ -17,22 +17,26 @@ nav {
   align-items: center;
   padding: 1.5rem;
   width: 100%;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #4461f2;
+  background-color: #4461f2;
+  border-radius: 2px;
 }
 
 li {
   display: inline-block;
   margin: 0 20px;
+
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 18px;
 }
 
-a.logo {
-  letter-spacing: 4px;
+a.logo{
+  letter-spacing: 1px;
+  color:white;
 }
 
 #home {
@@ -90,4 +94,8 @@ a.btn:hover {
   a.logo {
     margin-bottom: 1rem;
   }
+}
+
+ul, li {
+  background-color:white;
 }

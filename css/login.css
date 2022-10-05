@@ -95,7 +95,7 @@ body {
 
 .form-container input {
   border: none;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2.5rem;
   background-color: #fff;
   border-radius: 10px;
   outline: 1px solid #4461f2;
@@ -118,4 +118,10 @@ body {
 
 .form-container button:hover {
   background-color: #2341d6;
+}
+
+a.registro {
+  margin-top: 0.3rem;
+  color: #4461f2;
+  font-size: 1.3rem;
 }

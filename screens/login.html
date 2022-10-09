@@ -1,61 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/Sematec-IFPB/css/login.css" />
-    <title>Faça login com sua conta</title>
-    <style type="text/css">
-a{
-  color: #5cb85c;
-    text-decoration: none;
-}
-    </style>
-  </head>
-  <body>
-    <div class="navbar-container">
-      <div class="menu">
-        <a href="/Sematec-IFPB/index.html">Inicío</a>
-        <a href="">Serviços</a>
-        <a href="">Sobre</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <title>Faça login com sua conta</title>
+</head>
+
+<body>
+  <div class="navbar-container">
+    <div class="menu">
+      <a href="../index.html">Inicío</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+    <div class="login-container">
+      <a id="btn-signIn" href="">Entar</a>
+      <a id="btn-register" href="">Registrar-se</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mensagem">
+      <div class="header">
+        <h2>Ainda não tem <br>uma conta?</h2>
+        <a href="" class="registro">Crie uma conta agora!</a>
       </div>
-      <div class="login-container">
-        <a id="btn-signIn" href="">Entar</a>
-        <a id="btn-register" href="">Registrar-se</a>
+      <div class="paragrafo">
       </div>
     </div>
-    <div class="container">
-      <div class="mensagem">
-        <div class="header">
-          <h2>Ainda não tem <br>uma conta?</h2>
-          <a href="" class="registro">Crie uma conta agora!</a>
-        </div>
-        <div class="paragrafo">
-        </div>
-      </div>
-      <div class="img-container">
-        <img src="/Sematec-IFPB/images/login.png" alt="Imagem de login" />
-      </div>
-      <div class="form-container">
-<form action="" method="">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter Email"
-            required
-          />
-          <input
-            type="password"
-            name="senha"
-            id="senha"
-            placeholder="Enter Password"
-            required
-          />
-          <button type="submit">Login</button>
-        </form> 
-            </div>
+    <div class="img-container">
+      <img src="../images/login.png" alt="Imagem de login" />
+    </div>
+    <div class="form-container">
+      <form action="" method="">
+        <input type="email" name="email" id="email" placeholder="Enter Email" required />
+        <input type="password" name="senha" id="senha" placeholder="Enter Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
 
-  </body>
+</body>
+
 </html>

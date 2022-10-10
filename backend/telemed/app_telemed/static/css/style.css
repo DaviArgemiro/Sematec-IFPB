@@ -7,7 +7,7 @@
 
 body {
   background-color: #eaf0f7;
-  min-width: 450px;
+  min-width: 530px;
 }
 
 nav {
@@ -15,7 +15,7 @@ nav {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  padding: 1.5rem;
+  padding: 0.3rem;
   width: 100%;
   border-bottom: 1px solid #4461f2;
   background-color: #4461f2;
@@ -68,13 +68,17 @@ a.logo{
   width: 300px;
   height: 300px;
   object-fit: cover;
+  margin-bottom: 5rem;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 a.btn {
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 15px;
+  border-radius: 25px;
   background-color: #4461f2;
   color: white;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
 a.btn:hover {
@@ -84,18 +88,113 @@ a.btn:hover {
   transition: 0.3s all ease;
 }
 
-@media (max-width: 700px) {
-  nav {
-    margin-bottom: 2rem;
-  }
-
-
-@media (max-width: 497px) {
-  a.logo {
-    margin-bottom: 1rem;
-  }
+#servicos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh + 5rem);
+  flex-direction: column;
+  margin-top: 5rem;
 }
 
-ul, li {
-  background-color:white;
+.servicos-infos {
+  text-align: center;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
 }
+
+h1.servicos-txt {
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #4461f2;
+}
+
+h2.servicos-txt {
+  width: 500px;
+  line-height: 50px;
+  font-size: 35px;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+    width: 20rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border: 1px solid rgba(0,0,0, .2);
+}
+
+.card-infos {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 0.75rem;
+  margin-top: 0.1rem;
+}
+
+p.card-txt {
+  font-size: 15px;
+}
+
+#about {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 13rem;
+  margin-bottom: 5rem;
+}
+
+.about-img img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.about-infos p{
+  width: 500px;
+  color: black;
+  letter-spacing: 1px;
+  line-height: 28px;
+  font-size: 15px;
+}
+
+.about-infos h1 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #4461f2;
+}
+
+.about-infos h2 {
+  width: 500px;
+  line-height: 50px;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+footer {
+  height: 10rem;
+  background-color: #4461f2;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+
+

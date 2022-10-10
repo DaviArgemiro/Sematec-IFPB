@@ -1,0 +1,48 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <title>Faça login com sua conta</title>
+</head>
+
+<body>
+  <div class="navbar-container">
+    <div class="menu">
+      <a href="/">Inicío</a>
+      <a href="/#servicos">Serviços</a>
+      <a href="/#about">Sobre</a>
+    </div>
+    <div class="login-container">
+      <a id="btn-signIn" href="">Entrar</a>
+      <a id="btn-register" href="">Registrar-se</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mensagem">
+      <div class="header">
+        <h2>Ainda não tem <br>uma conta?</h2>
+        <a href="" class="registro">Crie uma conta agora!</a>
+      </div>
+      <div class="paragrafo">
+      </div>
+    </div>
+    <div class="img-container">
+      <img src="{% static 'images/login.png' %}" alt="Imagem de login" />
+    </div>
+    <div class="form-container">
+      <form action="" method="">
+        <input type="email" name="email" id="email" placeholder="Enter Email" required />
+        <input type="password" name="senha" id="senha" placeholder="Enter Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+</body>
+
+</html>

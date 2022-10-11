@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import MedicoFormRegister, ClienteFormRegister
+from .forms import MedicoFormRegister, ClienteFormRegister, LoginForm
 
 # Create your views here.
 
@@ -8,7 +8,17 @@ def index(request):
 	return render(request, 'index.html')
 
 def login(request):
-	return render(request, 'login.html')
+	formulario = LoginForm(request.POST or None)
+
+	if request.method == 'POST' and formulario.is_valid():
+		formulario.login(request)
+		return redirect('/')
+
+	context = {
+		'form': formulario
+	}
+
+	return render(request, 'login.html', context)
 
 def registrar_medico(request):
 	formulario = MedicoFormRegister(request.POST or None)

@@ -63,3 +63,21 @@ class ClienteFormRegister(forms.Form):
 			endereco = data['endereco']
 		)
 		cliente.save()
+
+class LoginForm(forms.Form):
+	username = forms.CharField(label='', required=True)
+	senha = forms.CharField(label='', strip=False, widget=forms.PasswordInput(), required=True)
+
+	def login(self, request):
+		data = self.cleaned_data
+
+		if Medico.objects.filter(username=data['username']).exists():
+			medico = auth.authenticate(request, username=data['username'], password=data['senha'])
+			if medico != None:
+				auth.login(request, medico)
+				print('Medico Logado')
+		elif Cliente.objects.filter(username=data['username']).exists():
+			cliente = auth.authenticate(request, username=data['username'], password=data['senha'])
+			if cliente != None:
+				auth.login(request, cliente)
+				print('Cliente Logado')

@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
   <title>Faça login com sua conta</title>
 </head>
 
@@ -36,10 +36,12 @@
       <img src="{% static 'images/login.png' %}" alt="Imagem de login" />
     </div>
     <div class="form-container">
-      <form action="" method="">
-        <input type="email" name="email" id="email" placeholder="Enter Email" required />
-        <input type="password" name="senha" id="senha" placeholder="Enter Password" required />
-        <button type="submit">Login</button>
+      <form action="{% url 'login' %}" method="POST" autocomplete="off">
+          {% csrf_token %}
+
+          {{ form }}
+
+          <button type="submit">Login</button>
       </form>
     </div>
 

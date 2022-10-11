@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registrar-se</title>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Se cadastrar como médico</h1>
+
+		<form action="{% url 'registrar_medico' %}" method="POST" autocomplete="off">
+			{% csrf_token %}
+
+			{{ form }}
+
+			<button type="submit">Registrar</button>
+		</form>
+
+	</div>
+</body>
+</html>

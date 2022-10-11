@@ -8,13 +8,13 @@ class MedicoFormRegister(forms.Form):
 	segundo_nome = forms.CharField(label='Sobrenome', required=True)
 	login = forms.CharField(label='Email', required=True)
 	senha = forms.CharField(label='Senha', required=True, widget=forms.PasswordInput(), strip=False)
-	num_pais = forms.CharField(label='Código do país', required=True)
-	num_ddd = forms.CharField(label='DDD', required=True)
-	num_telefone = forms.CharField(label='Telefone', required=True)
-	crm = forms.CharField(label='CRM', required=True)
+	num_pais = forms.CharField(label='Código do país', required=True, max_length = 3)
+	num_ddd = forms.CharField(label='DDD', required=True, max_length = 3)
+	num_telefone = forms.CharField(label='Telefone', required=True, max_length = 15)
+	crm = forms.CharField(label='CRM', required=True, max_length = 15)
 	crm_UF = forms.CharField(label='UF', required=True)
-	cep = forms.CharField(label='CEP', required=True)
-	endereco = forms.CharField(label='Endereço', required=True)
+	cep = forms.CharField(label='CEP', required=True, max_length = 10)
+	endereco = forms.CharField(label='Endereço', required=True, max_length = 50)
 	areaAtuacao = forms.CharField(label='Área de Atuação', required=True)
 
 	def save(self):
@@ -41,11 +41,11 @@ class ClienteFormRegister(forms.Form):
 	segundo_nome = forms.CharField(label='Sobrenome', required=True)
 	login = forms.CharField(label='Email', required=True)
 	senha = forms.CharField(label='Senha', required=True, widget=forms.PasswordInput(), strip=False)
-	num_pais = forms.CharField(label='Código do país', required=True)
-	num_ddd = forms.CharField(label='DDD', required=True)
-	num_telefone = forms.CharField(label='Telefone', required=True)
-	cep = forms.CharField(label='CEP', required=True)
-	endereco = forms.CharField(label='Endereço', required=True)
+	num_pais = forms.CharField(label='Código do país', required=True, max_length = 3)
+	num_ddd = forms.CharField(label='DDD', required=True, max_length = 3)
+	num_telefone = forms.CharField(label='Telefone', required=True, max_length = 15)
+	cep = forms.CharField(label='CEP', required=True, max_length = 10)
+	endereco = forms.CharField(label='Endereço', required=True, max_length = 50)
 
 	def save(self):
 		data = self.cleaned_data

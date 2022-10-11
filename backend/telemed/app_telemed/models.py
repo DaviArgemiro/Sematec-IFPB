@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class medico(User):
+class Medico(User):
 	num_pais = models.CharField(max_length = 3)
 	num_ddd = models.CharField(max_length = 3)
 	num_telefone = models.CharField(max_length = 15)
@@ -14,7 +14,7 @@ class medico(User):
 	endereco = models.CharField(max_length = 50)
 	areaAtuacao = models.CharField(max_length = 50)
 
-class cliente(User):
+class Cliente(User):
 	num_pais = models.CharField(max_length = 3)
 	num_ddd = models.CharField(max_length = 3)
 	num_telefone = models.CharField(max_length = 15)

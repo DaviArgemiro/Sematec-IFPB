@@ -1,10 +1,27 @@
 from django.shortcuts import render, redirect
 from .forms import MedicoFormRegister, ClienteFormRegister, LoginForm
+from .models import Medico, Cliente
 
 # Create your views here.
 
 
 def index(request):
+	usuario = request.user
+
+	if usuario.is_authenticated:
+		if hasattr(usuario, 'medico'):
+			medico = Medico.objects.get(id=usuario.id)
+			context = {
+				'nome': medico.first_name
+			}
+			return render(request, 'home_medico.html', context)
+		elif hasattr(usuario, 'cliente'):
+			cliente = Cliente.objects.get(id=usuario.id)
+			context = {
+				'nome': cliente.first_name
+			}
+			return render(request, 'home_cliente.html', context)
+
 	return render(request, 'index.html')
 
 def login(request):

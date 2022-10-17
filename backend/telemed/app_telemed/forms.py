@@ -4,18 +4,19 @@ from django.contrib import auth
 from .encrypting import encriptar_senha
 
 class MedicoFormRegister(forms.Form):
-	primeiro_nome = forms.CharField(label='Nome', required=True)
-	segundo_nome = forms.CharField(label='Sobrenome', required=True)
-	login = forms.CharField(label='Email', required=True)
-	senha = forms.CharField(label='Senha', required=True, widget=forms.PasswordInput(), strip=False)
-	num_pais = forms.CharField(label='Código do país', required=True, max_length = 3)
-	num_ddd = forms.CharField(label='DDD', required=True, max_length = 3)
-	num_telefone = forms.CharField(label='Telefone', required=True, max_length = 15)
-	crm = forms.CharField(label='CRM', required=True, max_length = 15)
-	crm_UF = forms.CharField(label='UF', required=True)
-	cep = forms.CharField(label='CEP', required=True, max_length = 10)
-	endereco = forms.CharField(label='Endereço', required=True, max_length = 50)
-	areaAtuacao = forms.CharField(label='Área de Atuação', required=True)
+	wdgt = forms.TextInput(attrs={'class':'input-text', 'placeholder':'Digite sua senha...','type':'password'})
+	primeiro_nome = forms.CharField(label='',required=True, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu nome...'}))
+	segundo_nome = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu sobrenome...'}))
+	login = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu email...'}))
+	senha = forms.CharField(label='', required=True, widget=wdgt, strip=False)
+	num_pais = forms.CharField(label='', required=True, max_length = 3, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite o código do país...'}))
+	num_ddd = forms.CharField(label='', required=True, max_length = 3, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu DDD...'}))
+	num_telefone = forms.CharField(label='', required=True, max_length = 15, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu telefone...'}))
+	crm = forms.CharField(label='', required=True, max_length = 15, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite seu CRM...'}))
+	crm_UF = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite o UF do CRM...'}))
+	cep = forms.CharField(label='', required=True, max_length = 10, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite seu CEP...'}))
+	endereco = forms.CharField(label='', required=True, max_length = 50, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite seu endereço...'}))
+	areaAtuacao = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite sua área de atuação'}))
 
 	def save(self):
 		data = self.cleaned_data

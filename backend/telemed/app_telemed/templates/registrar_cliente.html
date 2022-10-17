@@ -14,6 +14,7 @@
 			<h1>Cadastra-se como cliente</h1>
 
 		<form action="{% url 'registrar_cliente' %}" method="POST" autocomplete="off">
+				{% csrf_token %}
 				{{ form.as_p }}
 				<div>
 					Ao se registrar, você aceita nossos <strong>termos de uso</strong>  e a nossa <strong>política de privacidade</strong> 

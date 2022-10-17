@@ -73,6 +73,10 @@ body {
   justify-content: space-around;
 }
 
+input.input-text {
+  margin: 2.5px;
+}
+
 .mensagem {
   display: flex;
   flex-direction: column;

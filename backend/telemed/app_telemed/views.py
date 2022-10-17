@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import MedicoFormRegister, ClienteFormRegister, LoginForm
 from .models import Medico, Cliente
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -23,6 +24,10 @@ def index(request):
 			return render(request, 'home_cliente.html', context)
 
 	return render(request, 'index.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
 def login(request):
 	formulario = LoginForm(request.POST or None)

@@ -5,25 +5,28 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+	<link rel="stylesheet" href="{% static 'css/registrar_cliente.css'%}">
 	<title>Registre-se</title>
 </head>
 <body>
-	<div class="navbar-container">
-    <div class="menu">
-      <a href="/">Inicío</a>
-      <a href="/#servicos">Serviços</a>
-      <a href="/#about">Sobre</a>
-    </div>
-  </div>
 	<div class="container">
-			<form action="{% url 'registrar_cliente' %}" method="POST" autocomplete="off">
-				{% csrf_token %}
+		<div class="login">
+			<h1>Cadastra-se como cliente</h1>
 
+		<form action="{% url 'registrar_cliente' %}" method="POST" autocomplete="off">
 				{{ form.as_p }}
-
-				<button type="submit">Registrar</button>
-			</form>
+				<div>
+					Ao se registrar, você aceita nossos <strong>termos de uso</strong>  e a nossa <strong>política de privacidade</strong> 
+				</div>
+			<button type="submit">Registrar</button>
+		</form>
+		</div>
+		<div class="informacoes">
+			<img src="{% static 'images/logo.png'%}" alt="logo">
+			<h3>Mais de 200 mil usuários já estão conectados.</h3>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, dignissimos.</p>
+			<a href=""> &larr;  Voltar para o login</a>
+		</div>
 	</div>
 </body>
 </html>

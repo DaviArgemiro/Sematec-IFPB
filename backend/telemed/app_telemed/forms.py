@@ -46,7 +46,7 @@ class ClienteFormRegister(forms.Form):
 	num_ddd = forms.CharField(label='', required=True, max_length = 3, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu DDD...'}))
 	num_telefone = forms.CharField(label='', required=True, max_length = 15, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu telefone...'}))
 	cep = forms.CharField(label='', required=True, max_length = 10, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu CEP...'}))
-	endereco = forms.CharField(label='', required=True, max_length = 50, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu endereçoo...'}))
+	endereco = forms.CharField(label='', required=True, max_length = 50, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu endereço...'}))
 
 	def save(self):
 		data = self.cleaned_data

@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:32px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+}
+
+.input-text{
+    margin: 5px;
+}
+
+.informacoes{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding: 32px;
+}
+
+h1{
+    margin: 16px;
+    text-align: center;
+}
+
+h3{
+    color:rgb(37, 37, 37);
+    text-align: left;
+    font-size: 32px;
+}
+
+a{
+    text-decoration: none;
+}
+
+form{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ebefff;
+    width: 400px;
+    padding: 32px;
+    border-radius: 1rem;
+    gap: 16px;
+}
+
+form>div{
+    text-align: center;
+    color: rgb(37, 37, 37);
+    width: 80%;
+    cursor: default;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+
+input{
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 1px solid black;
+    width: 80%;
+    font-size: 18px;
+}
+
+span{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: 80%;
+}
+
+button{
+    width: 80%;
+    font-size: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #6881fd;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #3456ff;
+}
+

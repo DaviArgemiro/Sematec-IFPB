@@ -5,15 +5,32 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="{% static 'css/registrar_cliente.css'%}">
+	<link rel="stylesheet" href="{% static 'css/registrar.css'%}">
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
 	<title>Registre-se</title>
 </head>
 <body>
+	<header>
+      <nav>
+        <a href="/"><img src="{%static 'images/logo.png'%}"></a>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="/login/">Entrar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
 	<div class="container">
 		<div class="login">
-			<h1>Cadastra-se como cliente</h1>
+			<h1>Cadastrar-se como cliente</h1>
 
 		<form action="{% url 'registrar_cliente' %}" method="POST" autocomplete="off">
+				{% csrf_token %}
 				{{ form.as_p }}
 				<div>
 					Ao se registrar, você aceita nossos <strong>termos de uso</strong>  e a nossa <strong>política de privacidade</strong> 
@@ -22,7 +39,6 @@
 		</form>
 		</div>
 		<div class="informacoes">
-			<img src="{% static 'images/logo.png'%}" alt="logo">
 			<h3>Mais de 200 mil usuários já estão conectados.</h3>
 			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, dignissimos.</p>
 			<a href=""> &larr;  Voltar para o login</a>

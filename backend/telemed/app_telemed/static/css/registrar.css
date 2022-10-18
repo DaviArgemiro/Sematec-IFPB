@@ -1,3 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.3rem;
+  width: 100%;
+  border-bottom: 1px solid #4461f2;
+  background-color: #4461f2;
+  border-radius: 2px;
+}
+
+li {
+  display: inline-block;
+  margin: 0 20px;
+
+}
+
+a.logo{
+  letter-spacing: 1px;
+  color:white;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -38,8 +68,10 @@ h3{
     font-size: 32px;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
 }
 
 form{

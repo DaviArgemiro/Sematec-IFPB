@@ -24,11 +24,10 @@ class Cliente(User):
 class Consulta(models.Model):
 	id_med = models.BigIntegerField()
 	id_cli = models.BigIntegerField()
-	requisito = models.IntegerField()
-	data_requisito = models.DateField(auto_now_add = True)
+	data_requisito = models.DateTimeField(auto_now_add = True, editable=False)
 	data_consulta = models.DateTimeField()
 	obs = models.CharField(max_length = 150)
-	link_consulta = models.CharField(max_length = 100)
+	link_consulta = models.URLField(null = True, blank = True)
 	status = models.IntegerField()
 	documento = models.ImageField(null = True, blank = True)
 	

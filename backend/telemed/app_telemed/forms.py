@@ -1,21 +1,24 @@
 from django import forms
-from .models import Medico, Cliente
+from .models import Consulta, Medico, Cliente
 from django.contrib import auth
+from django.contrib.auth.models import User
 from .encrypting import encriptar_senha
+from .choices import medic_choices
 
 class MedicoFormRegister(forms.Form):
-	primeiro_nome = forms.CharField(label='Nome', required=True)
-	segundo_nome = forms.CharField(label='Sobrenome', required=True)
-	login = forms.CharField(label='Email', required=True)
-	senha = forms.CharField(label='Senha', required=True, widget=forms.PasswordInput(), strip=False)
-	num_pais = forms.CharField(label='Código do país', required=True, max_length = 3)
-	num_ddd = forms.CharField(label='DDD', required=True, max_length = 3)
-	num_telefone = forms.CharField(label='Telefone', required=True, max_length = 15)
-	crm = forms.CharField(label='CRM', required=True, max_length = 15)
-	crm_UF = forms.CharField(label='UF', required=True)
-	cep = forms.CharField(label='CEP', required=True, max_length = 10)
-	endereco = forms.CharField(label='Endereço', required=True, max_length = 50)
-	areaAtuacao = forms.CharField(label='Área de Atuação', required=True)
+	wdgt = forms.TextInput(attrs={'class':'input-text', 'placeholder':'Digite sua senha...','type':'password'})
+	primeiro_nome = forms.CharField(label='',required=True, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu nome...'}))
+	segundo_nome = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu sobrenome...'}))
+	login = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu email...'}))
+	senha = forms.CharField(label='', required=True, widget=wdgt, strip=False)
+	num_pais = forms.CharField(label='', required=True, max_length = 3, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite o código do país...'}))
+	num_ddd = forms.CharField(label='', required=True, max_length = 3, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu DDD...'}))
+	num_telefone = forms.CharField(label='', required=True, max_length = 15, widget=forms.TextInput(attrs={'class':'input-text', 'placeholder': 'Digite seu telefone...'}))
+	crm = forms.CharField(label='', required=True, max_length = 15, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite seu CRM...'}))
+	crm_UF = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite o UF do CRM...'}))
+	cep = forms.CharField(label='', required=True, max_length = 10, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite seu CEP...'}))
+	endereco = forms.CharField(label='', required=True, max_length = 50, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite seu endereço...'}))
+	areaAtuacao = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'class': 'input-text', 'placeholder': 'Digite sua área de atuação'}))
 
 	def save(self):
 		data = self.cleaned_data
@@ -82,3 +85,26 @@ class LoginForm(forms.Form):
 			if cliente != None:
 				auth.login(request, cliente)
 				print('Cliente Logado')
+
+class ConsultasForm(forms.Form):
+
+	médico = forms.ChoiceField(choices=medic_choices, required=True)
+	status = forms.IntegerField(widget= forms.HiddenInput(), initial=0)
+	data_da_consulta = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'type':'datetime-local'}))
+	observação = forms.CharField(max_length= 150, required=True, widget=forms.TextInput(attrs={'class':'input-t'}))
+
+
+
+	def save(self, clid):
+		data = self.cleaned_data
+
+		consulta = Consulta(
+			id_med = data['médico'],
+			id_cli = clid,
+			data_consulta = data['data_da_consulta'],
+			status = data['status'],
+			obs = data['observação'],
+			link_consulta = None,
+			documento = None,
+		)
+		consulta.save()

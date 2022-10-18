@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{% static 'css/registrar.css'%}">
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
 	<title>Registre-se</title>
 </head>
 <body>
@@ -27,19 +27,18 @@
 
 	<div class="container">
 		<div class="login">
-			<h1>Cadastrar-se como cliente</h1>
-
-		<form action="{% url 'registrar_cliente' %}" method="POST" autocomplete="off">
-				{% csrf_token %}
+			<h1>Agendar Consulta {{id}}</h1>
+            
+		<form action="{% url 'registrar_consulta' %}" method="POST" autocomplete="off">
+				<div class="ap">
+                {% csrf_token %}
 				{{ form.as_p }}
-				<div>
-					Ao se registrar, você aceita nossos <strong>termos de uso</strong>  e a nossa <strong>política de privacidade</strong> 
-				</div>
-			<button type="submit">Registrar</button>
+                </div>
+			<button type="submit">Agendar</button>
 		</form>
 		</div>
 		<div class="informacoes">
-			<h3>Mais de 200 mil usuários já estão conectados.</h3>
+			<h3>Temos mais de 60 mil médicos trabalhando conosco.</h3>
 			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, dignissimos.</p>
 			<a href="/login/" class="back"> &larr;  Voltar para o login</a>
 		</div>

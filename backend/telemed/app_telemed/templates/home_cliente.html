@@ -1,12 +1,82 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+    <title>TeleMed</title>
 </head>
+
 <body>
-	<h1>Olá Cliente {{ nome }}</h1>
-	<a href="{% url 'logout' %}"><button>Sair da conta</button></a>
+    <header>
+        <nav>
+            <a href="index.html"><img src="{% static 'images/logo.png'%}"></a>
+            <ul>
+                <li><a href="#consultas">Consultas</a></li>
+                <li><a href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="medico">
+            <div class="cliente-card">
+                <img class="cliente-img" src="{% static 'images/sem-foto.png'%}">
+                <div class="cliente-infos">
+                    <h5 class="cliente-title">{{ nome }}</h5>
+                    <p class="cliente-p">{{ telefone }}</p>
+                    <p class="cliente-p">{{ cep }}</p>
+                    <P class="cliente-p">{{ endereco }}</P>
+                </div>
+            </div>
+            <div class="medico-img">
+                <img src="{% static 'images/medico.png'%}">
+            </div>
+        </section>
+
+         <section id="consultas">
+            <div class="consultas-infos">
+                <h1 class="consultas-txt">Consultas</h1>
+            </div>
+
+            <div class="tabelas">
+                <table width="1200px" height="600px">
+                    <thead>
+                        <tr>
+                            <th>Código da consulta</th>
+                            <th>Data de Requisição</th>
+                            <th>Data da Consulta</th>
+                            <th>Observação</th>
+                            <th>Link da Consulta</th>
+                            <th> Documento </th>
+                            <th>Status</th>
+                            <th><a href="registrar/consulta"><button>Agendar Consulta</button></a></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr> {% for consulta in consultas %}
+                            <td>{{ consulta.id }}</td>
+                            <td>{{ consulta.data_requisito }}</td>
+                            <td>{{ consulta.data_consulta }}</td>
+                            <td>{{ consulta.obs }}</td>
+                            {%if consulta.link_consulta != None %} <td>{{ consulta.link_consulta }}</td> {%else%} <td> Nenhum link disponível </td> {%endif%}
+                            {%if consulta.documento == None %} <th> {{ consulta.documento }} </th> {%else%} <td> Nenhum documento disponível </td> {%endif%}
+                            <td {% if consulta.status == 0%}> Pendente </td>{% elif consulta.status == 1 %}> Confirmado </td> {% elif consulta.status == 2 %}> Cancelado </td> {% elif consulta.status == 3 %}> Finalizado </td> {% endif %}
+                        </tr> {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section> -->
+
+    </main>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
+from pydoc import cli
 from django.shortcuts import render, redirect
-from .forms import MedicoFormRegister, ClienteFormRegister, LoginForm
-from .models import Medico, Cliente
+from .forms import MedicoFormRegister, ClienteFormRegister, LoginForm, ConsultasForm
+from .models import Medico, Cliente, Consulta
 from django.contrib.auth import logout
 
 # Create your views here.
@@ -8,19 +9,45 @@ from django.contrib.auth import logout
 
 def index(request):
 	usuario = request.user
+	consultas = Consulta.objects.filter(id_cli=usuario.id)
+	consultas2 = Consulta.objects.filter(id_med=usuario.id)
 
 	if usuario.is_authenticated:
 		if hasattr(usuario, 'medico'):
 			medico = Medico.objects.get(id=usuario.id)
-			context = {
-				'nome': medico.first_name
-			}
+			if consultas2 != None:
+				context = {
+					'nome': f'{medico.first_name}  {medico.last_name}',
+					'consultas': consultas2,
+					'telefone': f'{medico.num_pais} ({medico.num_ddd}) {medico.num_telefone}',
+					'cep': medico.cep,
+					'endereco': medico.endereco
+				}
+			else:
+				context = {
+					'nome': f'{medico.first_name}  {medico.last_name}',
+					'telefone': f'{medico.num_pais} ({medico.num_ddd}) {medico.num_telefone}',
+					'cep': medico.cep,
+					'endereco': medico.endereco
+				}
 			return render(request, 'home_medico.html', context)
 		elif hasattr(usuario, 'cliente'):
 			cliente = Cliente.objects.get(id=usuario.id)
-			context = {
-				'nome': cliente.first_name
-			}
+			if consultas != None:
+				context = {
+					'nome': f'{cliente.first_name}  {cliente.last_name}',
+					'consultas': consultas,
+					'telefone': f'{cliente.num_pais} ({cliente.num_ddd}) {cliente.num_telefone}',
+					'cep': cliente.cep,
+					'endereco': cliente.endereco
+				}
+			else:
+				context = {
+					'nome': f'{cliente.first_name}  {cliente.last_name}',
+					'telefone': f'{cliente.num_pais} ({cliente.num_ddd}) {cliente.num_telefone}',
+					'cep': cliente.cep,
+					'endereco': cliente.endereco
+				}
 			return render(request, 'home_cliente.html', context)
 
 	return render(request, 'index.html')
@@ -67,3 +94,24 @@ def registrar_cliente(request):
 	}
 
 	return render(request, 'registrar_cliente.html', context)
+
+def registrar_consulta(request):
+	cliente = request.user
+
+	formulario = ConsultasForm(request.POST or None)
+
+	if request.method == 'POST' and formulario.is_valid():
+		formulario.save(clid=cliente.id)
+		return redirect('/')
+
+	context = {
+		'form': formulario,
+	}
+
+	return render(request, 'registrar_consulta.html', context)
+
+def home_cliente(request):
+	return render(request, 'home_cliente.html')
+
+
+

@@ -5,28 +5,44 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-	<title>Registrar-se</title>
+	<link rel="stylesheet" href="{% static 'css/registrar.css'%}">
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
+	<title>Registre-se</title>
 </head>
 <body>
-	<div class="navbar-container">
-    <div class="menu">
-      <a href="/">Inicío</a>
-      <a href="/#servicos">Serviços</a>
-      <a href="/#about">Sobre</a>
-    </div>
-  </div>
+	<header>
+      <nav>
+        <a href="/"><img src="{%static 'images/logo.png'%}"></a>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#servicos">Serviços</a></li>
+          <li><a href="/#about">Sobre</a></li>
+          <li><a href="/login/">Entrar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
 	<div class="container">
-		<h1>Se cadastrar como médico</h1>
+		<div class="login">
+			<h1>Cadastrar-se como médico</h1>
 
 		<form action="{% url 'registrar_medico' %}" method="POST" autocomplete="off">
-			{% csrf_token %}
-
-			{{ form.as_p }}
-
+				{% csrf_token %}
+				{{ form.as_p }}
+				<div>
+					Ao se registrar, você aceita nossos <strong>termos de uso</strong>  e a nossa <strong>política de privacidade</strong> 
+				</div>
 			<button type="submit">Registrar</button>
 		</form>
-
+		</div>
+		<div class="informacoes">
+			<h3>Temos mais de 60 mil médicos trabalhando conosco.</h3>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, dignissimos.</p>
+			<a href="/login/" class="back"> &larr;  Voltar para o login</a>
+		</div>
 	</div>
 </body>
 </html>

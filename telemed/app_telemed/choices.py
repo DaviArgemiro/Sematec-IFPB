@@ -9,7 +9,3 @@ for medico in medicos:
     tmp.append((medico.id, f"{medico.first_name} {medico.last_name} - {medico.areaAtuacao}"))
 
 medic_choices = tuple(tmp)
-
-print(medic_choices)
-
-

@@ -98,17 +98,20 @@ def registrar_cliente(request):
 def registrar_consulta(request):
 	cliente = request.user
 
-	formulario = ConsultasForm(request.POST or None)
+	if cliente.is_authenticated and hasattr(cliente, 'cliente'):
+		formulario = ConsultasForm(request.POST or None)
 
-	if request.method == 'POST' and formulario.is_valid():
-		formulario.save(clid=cliente.id)
+		if request.method == 'POST' and formulario.is_valid():
+			formulario.save(clid=cliente.id)
+			return redirect('/')
+
+		context = {
+			'form': formulario,
+		}
+
+		return render(request, 'registrar_consulta.html', context)
+	else:
 		return redirect('/')
-
-	context = {
-		'form': formulario,
-	}
-
-	return render(request, 'registrar_consulta.html', context)
 
 def aceitar_consulta(request, consulta_id):
 	medico = request.user

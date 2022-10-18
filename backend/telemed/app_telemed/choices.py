@@ -1,10 +1,15 @@
 from .models import Medico
 
-medic_choices = []
+medic_choices = ()
+tmp = []
 
 medicos = Medico.objects.all()
 
 for medico in medicos:
-    medic_choices.append((medico.id, f"{medico.first_name} {medico.last_name} - {medico.areaAtuacao}"))
+    tmp.append((medico.id, f"{medico.first_name} {medico.last_name} - {medico.areaAtuacao}"))
+
+medic_choices = tuple(tmp)
+
+print(medic_choices)
 
 

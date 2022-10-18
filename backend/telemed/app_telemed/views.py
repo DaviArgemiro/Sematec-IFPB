@@ -87,7 +87,7 @@ def registrar_cliente(request):
 
 	if request.method == 'POST' and formulario.is_valid():
 		formulario.save()
-		return redirect('/')
+		return redirect('/login/')
 
 	context = {
 		'form': formulario

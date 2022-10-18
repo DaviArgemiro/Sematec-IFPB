@@ -55,34 +55,6 @@ a.logo{
   margin: 0 1rem;
 }
 
-#btn-register {
-  background-color: #fff;
-  padding: 0.6rem 1rem;
-  border-radius: 0.5rem;
-  color: #4461f2;
-  transition: 0.5s;
-}
-
-#btn-register:hover {
-  background-color: #cfd6f7;
-}
-
-#btn-signIn {
-  padding: 0.5rem 1rem;
-  color: #4461f2;
-}
-
-#btn-signIn::after {
-  content: " ";
-  display: block;
-  width: 1.3rem;
-  height: 0.2rem;
-  background-color: #4461f2;
-  margin: 0 auto;
-  border-radius: 0.2rem;
-  margin-top: 0.3rem;
-}
-
 .container {
   display: flex;
   flex-direction: row;
@@ -127,7 +99,7 @@ input.input-text {
   outline: 2px solid #4461f2;
 }
 
-.form-container button {
+button {
   border: none;
   padding: 0.7rem 1.5rem;
   background-color: #4461f2;
@@ -138,7 +110,7 @@ input.input-text {
   transition: 0.5s;
 }
 
-.form-container button:hover {
+button:hover {
   background-color: #2341d6;
 }
 
@@ -148,54 +120,53 @@ a.registro {
   font-size: 1.3rem;
 }
 
-.modal-container {
-  width: 100vw;
-  position: fixed;
-  top: 30px;
-  display: none;
-  z-index: 999;
-  justify-content: center;
-}
-
 .modal {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
-  flex-direction: column;
-  padding: 30px;
-  background-color: white;
-  border-radius: 10px;
-  width: 50%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 77, 77, 0.7);
+  transition: all 0.4s;
+}
+ 
+.modal:target {
+  visibility: visible;
+  opacity: 1;
 }
 
-.active {
-  display: flex;
+.modal__content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  background: #eaf0f7;
+  padding: 1em 2em;
 }
-
-.active .modal {
-  animation: modal .4s;
+ 
+.modal__footer {
+  text-align: right;
+  margin-top: 50px;
 }
-
-@keyframes modal {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -60px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+ 
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #585858;
+  text-decoration: none;
 }
-
-.btns {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.btns button {
-  font-size: medium;
+ 
+.modal__footer-btn-close {
+  width: 150px;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
+  text-decoration: none;
+  background-color: #4461f2;
   color: white;
-  cursor: pointer;
+  border-radius: 3px;
 }

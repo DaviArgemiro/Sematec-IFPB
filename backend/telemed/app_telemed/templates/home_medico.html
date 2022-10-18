@@ -71,8 +71,8 @@
                             {%if consulta.link_consulta != None %} <td>{{ consulta.link_consulta }}</td> {%else%} <td> Nenhum link disponível </td> {%endif%}
                             {%if consulta.documento == None %} <th> {{ consulta.documento }} </th> {%else%} <td> Nenhum documento disponível </td> {%endif%}
                             <td {% if consulta.status == 0%}> Pendente </td>{% elif consulta.status == 1 %}> Confirmado </td> {% elif consulta.status == 2 %}> Cancelado </td> {% elif consulta.status == 3 %}> Finalizado </td> {% endif %}
-							{% if consulta.status == 0%}  <td><a href = ""><button>Aceitar</button></a></td>  {%endif%}
-							{% if consulta.status == 0%}  <td><a href= "" ><button>Recusar</button></a></td>  {%endif%}
+							{% if consulta.status == 0%}  <td><a href = "/aceitar/consulta/{{ consulta.id }}"><button>Aceitar</button></a></td>  {%endif%}
+							{% if consulta.status == 0%}  <td><a href= "/negar/consulta/{{ consulta.id }}" ><button>Recusar</button></a></td>  {%endif%}
                         </tr> {% endfor %}
                     </tbody>
                 </table>

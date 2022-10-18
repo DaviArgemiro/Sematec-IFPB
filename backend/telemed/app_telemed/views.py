@@ -9,11 +9,10 @@ from django.contrib.auth import logout
 
 def index(request):
 	usuario = request.user
-	consultas = Consulta.objects.filter(id_cli=usuario.id)
-	consultas2 = Consulta.objects.filter(id_med=usuario.id)
 
 	if usuario.is_authenticated:
 		if hasattr(usuario, 'medico'):
+			consultas2 = Consulta.objects.filter(id_med=usuario.id)
 			medico = Medico.objects.get(id=usuario.id)
 			if consultas2 != None:
 				context = {
@@ -32,6 +31,7 @@ def index(request):
 				}
 			return render(request, 'home_medico.html', context)
 		elif hasattr(usuario, 'cliente'):
+			consultas = Consulta.objects.filter(id_cli=usuario.id)
 			cliente = Cliente.objects.get(id=usuario.id)
 			if consultas != None:
 				context = {
@@ -110,8 +110,27 @@ def registrar_consulta(request):
 
 	return render(request, 'registrar_consulta.html', context)
 
-def home_cliente(request):
-	return render(request, 'home_cliente.html')
+def aceitar_consulta(request, consulta_id):
+	medico = request.user
 
+	if medico.is_authenticated and hasattr(medico, 'medico'):
+		consulta = Consulta.objects.get(id=consulta_id)
+		if consulta.id_med == medico.id:
+			consulta.status = 1
+			consulta.save(update_fields=['status'])
+		else:
+			return redirect('/')
+	return redirect('/')
 
+def negar_consulta(request, consulta_id):
+	medico = request.user
+
+	if medico.is_authenticated and hasattr(medico, 'medico'):
+		consulta = Consulta.objects.get(id=consulta_id)
+		if consulta.id_med == medico.id:
+			consulta.status = 2
+			consulta.save(update_fields=['status'])
+		else:
+			return redirect('/')
+	return redirect('/')
 

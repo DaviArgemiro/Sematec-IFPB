@@ -8,30 +8,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
   <title>Faça login com sua conta</title>
 </head>
 
 <body>
-  <div class="navbar-container">
-    <div class="menu">
-      <a href="/">Inicío</a>
-      <a href="/#servicos">Serviços</a>
-      <a href="/#about">Sobre</a>
-    </div>
-    <div class="login-container">
-      <a id="btn-signIn" href="">Entrar</a>
-      <a id="btn-register" href="">Registrar-se</a>
-    </div>
-  </div>
+  <header>
+      <nav>
+        <a href="/"><img src="{%static 'images/logo.png'%}"></a>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="/login/">Entrar</a></li>
+        </ul>
+      </nav>
+    </header>
+
   <div class="container">
     <div class="mensagem">
       <div class="header">
         <h2>Ainda não tem <br>uma conta?</h2>
-        <a href="" class="registro">Crie uma conta agora!</a>
+        <a href="" class="registro" onclick="open_modal()">Crie uma conta agora!</a>
       </div>
       <div class="paragrafo">
       </div>
     </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet magni repudiandae dolorum enim, porro architecto, deleniti ab natus obcaecati, corporis nam quisquam alias? Earum vitae quasi suscipit ea id repellat!</p>
+      </div>
+      <div class="btns">
+        <button class="btnClone" onclick="close_modal()">Fechar</button>
+      </div>
+    </div>
+
+
     <div class="img-container">
       <img src="{% static 'images/login.png' %}" alt="Imagem de login" />
     </div>
@@ -44,6 +59,9 @@
           <button type="submit">Login</button>
       </form>
     </div>
+
+
+    <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
 
 </body>
 

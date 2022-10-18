@@ -89,8 +89,12 @@ form{
     gap: 16px;
 }
 
+div.ap {
+    align-items: left;
+}
+
 form>div{
-    text-align: center;
+    text-align: left;
     color: rgb(37, 37, 37);
     width: 80%;
     cursor: default;
@@ -99,7 +103,7 @@ form>div{
 }
 
 
-input{
+.input-t{
     outline: none;
     border: none;
     background: none;

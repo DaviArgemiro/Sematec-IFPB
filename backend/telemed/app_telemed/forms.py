@@ -1,7 +1,9 @@
 from django import forms
-from .models import Medico, Cliente
+from .models import Consulta, Medico, Cliente
 from django.contrib import auth
+from django.contrib.auth.models import User
 from .encrypting import encriptar_senha
+from .choices import medic_choices
 
 class MedicoFormRegister(forms.Form):
 	wdgt = forms.TextInput(attrs={'class':'input-text', 'placeholder':'Digite sua senha...','type':'password'})
@@ -83,3 +85,26 @@ class LoginForm(forms.Form):
 			if cliente != None:
 				auth.login(request, cliente)
 				print('Cliente Logado')
+
+class ConsultasForm(forms.Form):
+
+	médico = forms.ChoiceField(choices=medic_choices, required=True)
+	status = forms.IntegerField(widget= forms.HiddenInput(), initial=0)
+	data_da_consulta = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'type':'datetime-local'}))
+	observação = forms.CharField(max_length= 150, required=True, widget=forms.TextInput(attrs={'class':'input-t'}))
+
+
+
+	def save(self, clid):
+		data = self.cleaned_data
+
+		consulta = Consulta(
+			id_med = data['médico'],
+			id_cli = clid,
+			data_consulta = data['data_da_consulta'],
+			status = data['status'],
+			obs = data['observação'],
+			link_consulta = None,
+			documento = None,
+		)
+		consulta.save()

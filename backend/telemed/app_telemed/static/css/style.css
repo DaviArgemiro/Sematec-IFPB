@@ -39,6 +39,17 @@ a.logo{
   color:white;
 }
 
+td.pendente {
+  background-color: orange;
+}
+
+td.confirmado {
+  background-color: green;
+}
+
+td.cancelado {
+  background-color: red;
+}
 
 #home {
   height: calc(88.5vh - 20px);
@@ -196,6 +207,89 @@ footer {
   color: #fff;
   flex-wrap: wrap;
 }
+
+.medico {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  height: calc(98vh - 87.2px);
+}
+
+.cliente-card {
+  width: 35rem;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  display: flex;
+  border: 1px solid rgba(0,0,0, .2);
+  margin: 20px;
+  height: 10rem;
+}
+
+.cliente-img {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  height: 10rem;
+  width: 10rem;
+}
+
+.medico-img img {
+  height: 28rem;
+}
+
+.cliente-infos {
+  padding: 1.25rem;
+}
+
+.cliente-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0.1rem;
+}
+
+.cliente-p {
+  font-size: 1rem;
+}
+
+#consultas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.consultas-infos {
+  margin-top: 5rem;
+  width: 400px;
+  text-align: center;
+}
+
+h1.consultas-txt {
+  margin-bottom: 25px;
+  font-size: 25px;
+  color: #4461f2;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+caption {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 10px;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+
+
+
+
 
 
 
